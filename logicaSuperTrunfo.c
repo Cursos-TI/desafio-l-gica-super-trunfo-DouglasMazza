@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// 1. Uso de struct para representar a Carta
+
 typedef struct {
 char estado[10];
 char cidade[50];
@@ -13,6 +13,7 @@ float densidade;
 } Carta;
 
 // Função para exibir os dados de uma carta
+
 void exibir_carta(Carta c) {
 printf("Carta: %s (%s)\n", c.cidade, c.estado);
 printf("População: %lu\n", c.populacao);
@@ -23,6 +24,7 @@ printf("Densidade Demografica: %.2f hab/km²\n", c.densidade);
 }
 
 // Função para exibir o menu e obter uma escolha válida
+
 int escolher_atributo(int opcao_ja_escolhida) {
 int opcao;
 do {
@@ -33,7 +35,7 @@ printf("4. Pontos Turisticos\n");
 printf("5. Densidade Demografica\n");
 printf("Digite sua opção: ");
 
-// Trata entrada inválida (não-número)
+// entrada inválida 
 
 if (scanf("%d", &opcao) != 1) {
 printf("Entrada inválida. Por favor, digite um número.\n");
@@ -51,6 +53,7 @@ return opcao;
 }
 
 // Função para obter o valor de um atributo
+
 float get_valor_atributo(Carta c, int opcao) {
 switch (opcao) {
 case 1: return c.populacao;
@@ -76,12 +79,11 @@ default: return "";
 }
 
 int main() {
-// Dados das cartas usando a struct
 
 Carta carta1 = {"SP", "Sao_Paulo", 12396372, 1521.11, 699.29, 500};
 Carta carta2 = {"RJ", "Rio_de_Janeiro", 6775561, 1200.25, 359.60, 450};
 
-// Calcular a densidade e armazenar na struct
+// Calcular a densidade e armazenar
 
 carta1.densidade = (float)carta1.populacao / carta1.area;
 carta2.densidade = (float)carta2.populacao / carta2.area;
